@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+/client/node_modules
+/server/node_modules
+
 # testing
 /coverage
 
@@ -23,4 +26,8 @@ yarn-debug.log*
 yarn-error.log*
 
 
-./alf
+./client/node_modules
+./server/node_modules
+
+node_modules
+node_modules/
