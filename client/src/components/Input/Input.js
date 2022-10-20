@@ -1,5 +1,5 @@
-import React from "react";
-import "./Input.css";
+import React from 'react';
+import './Input.css';
 
 const Input = ({ setMessage, sendMessage, message }) => (
   <form className="form">
@@ -10,7 +10,7 @@ const Input = ({ setMessage, sendMessage, message }) => (
       value={message}
       onChange={(event) => setMessage(event.target.value)}
       onKeyPress={(event) =>
-        event.key === "Enter" ? sendMessage(event) : null
+        event.key === 'Enter' ? sendMessage(event) : null
       }
     />
     <button className="sendButton" onClick={(event) => sendMessage(event)}>
@@ -18,5 +18,6 @@ const Input = ({ setMessage, sendMessage, message }) => (
     </button>
   </form>
 );
+//a
 
 export default Input;

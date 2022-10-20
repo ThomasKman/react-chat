@@ -1,28 +1,28 @@
-import React, { useState, useEffect } from "react";
-import queryString from "query-string";
-import io from "socket.io-client";
+import React, { useState, useEffect } from 'react';
+import queryString from 'query-string';
+import io from 'socket.io-client';
 
-import TextContainer from "../TextContainer/TextContainer";
-import InfoBar from "../InfoBar/InfoBar";
-import Input from "../Input/Input";
-import Messages from "../Messages/Messages";
-import "./Chat.css";
+import TextContainer from '../TextContainer/TextContainer';
+import InfoBar from '../InfoBar/InfoBar';
+import Input from '../Input/Input';
+import Messages from '../Messages/Messages';
+import './Chat.css';
 
-const ENDPOINT = "http://localhost:5000";
+const ENDPOINT = 'http://localhost:5000';
 let socket;
 
 const Chat = ({ location }) => {
-  const [name, setName] = useState("");
-  const [room, setRoom] = useState("");
-  const [users, setUsers] = useState("");
-  const [message, setMessage] = useState("");
+  const [name, setName] = useState('');
+  const [room, setRoom] = useState('');
+  const [users, setUsers] = useState('');
+  const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
 
   var connectionOptions = {
-    "force new connection": true,
-    reconnectionAttempts: "Infinity",
+    'force new connection': true,
+    reconnectionAttempts: 'Infinity',
     timeout: 10000,
-    transports: ["websocket"],
+    transports: ['websocket'],
   };
 
   useEffect(() => {
@@ -33,25 +33,25 @@ const Chat = ({ location }) => {
     setName(name);
     setRoom(room);
 
-    socket.emit("join", { name, room }, (error) => {
+    socket.emit('join', { name, room }, (error) => {
       if (error) {
         alert(error);
       }
     });
 
     return () => {
-      socket.emit("disconnect", { name, room });
+      socket.emit('disconnect', { name, room });
       socket.off();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ENDPOINT, location.search]);
 
   useEffect(() => {
-    socket.on("message", (message) => {
+    socket.on('message', (message) => {
       setMessages([...messages, message]);
     });
 
-    socket.on("roomData", ({ users }) => setUsers(users));
+    socket.on('roomData', ({ users }) => setUsers(users));
 
     return () => {
       socket.off();
@@ -61,7 +61,7 @@ const Chat = ({ location }) => {
   const sendMessage = (event) => {
     event.preventDefault();
     if (message) {
-      socket.emit("sendMessage", message, () => setMessage(""));
+      socket.emit('sendMessage', message, () => setMessage(''));
     }
   };
 

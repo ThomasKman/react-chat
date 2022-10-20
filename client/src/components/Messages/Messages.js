@@ -1,7 +1,7 @@
-import React from "react";
-import ScrollToBottom from "react-scroll-to-bottom";
-import Message from "./Message/Message";
-import "./Messages.css";
+import React from 'react';
+import ScrollToBottom from 'react-scroll-to-bottom';
+import Message from './Message/Message';
+import './Messages.css';
 
 const Messages = ({ messages, name }) => (
   <ScrollToBottom className="messages">
@@ -12,5 +12,6 @@ const Messages = ({ messages, name }) => (
     ))}
   </ScrollToBottom>
 );
+//a
 
 export default Messages;

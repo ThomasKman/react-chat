@@ -1,7 +1,7 @@
-import React from "react";
-import "./InfoBar.css";
-import closeIcon from "../../icons/closeIcon.png";
-import onlineIcon from "../../icons/onlineIcon.png";
+import React from 'react';
+import './InfoBar.css';
+import closeIcon from '../../icons/closeIcon.png';
+import onlineIcon from '../../icons/onlineIcon.png';
 
 const InforBar = ({ room }) => (
   <div className="infoBar">
@@ -17,4 +17,5 @@ const InforBar = ({ room }) => (
   </div>
 );
 
+//a
 export default InforBar;
