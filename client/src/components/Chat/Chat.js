@@ -8,7 +8,8 @@ import Input from '../Input/Input';
 import Messages from '../Messages/Messages';
 import './Chat.css';
 
-const ENDPOINT = 'http://localhost:5000';
+// const ENDPOINT = 'http://localhost:5000';
+const ENDPOINT = 'https://react-chat-hs.herokuapp.com/';
 let socket;
 
 const Chat = ({ location }) => {
